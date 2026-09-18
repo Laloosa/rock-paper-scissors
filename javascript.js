@@ -25,25 +25,29 @@ function getHumanChoice() {
     }
 }
 
-function playRound(humanChoice, computerChoice) {
-    if ((humanChoice == "Rock" && computerChoice == "Scissors") || (humanChoice == "Paper" && computerChoice == "Rock") || (humanChoice == "Scissors" && computerChoice == "Paper")) {
-        console.log("You win! " + humanChoice + " beats " + computerChoice + ".");
-        humanScore++;
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+
+    function playRound(humanChoice, computerChoice) {
+        if ((humanChoice == "Rock" && computerChoice == "Scissors") || (humanChoice == "Paper" && computerChoice == "Rock") || (humanChoice == "Scissors" && computerChoice == "Paper")) {
+            console.log("You win! " + humanChoice + " beats " + computerChoice + ".");
+            humanScore++;
+        }
+        else if ((humanChoice == "Rock" && computerChoice == "Paper") || (humanChoice == "Paper" && computerChoice == "Scissors") || (humanChoice == "Scissors" && computerChoice == "Rock")) {
+            console.log("You lose... " + humanChoice + " loses to " + computerChoice + ".");
+            computerScore++;
+        }
+        else {
+            console.log(humanChoice + " and " + computerChoice + ". It's a draw!");
+        }
     }
-    else if ((humanChoice == "Rock" && computerChoice == "Paper") || (humanChoice == "Paper" && computerChoice == "Scissors") || (humanChoice == "Scissors" && computerChoice == "Rock")) {
-        console.log("You lose... " + humanChoice + " loses to " + computerChoice + ".");
-        computerScore++;
-    }
-    else {
-        console.log(humanChoice + " and " + computerChoice + ". It's a draw!");
+
+    for (i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
     }
 }
 
-let humanScore = 0;
-let computerScore = 0;
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
-
+playGame();
