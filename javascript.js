@@ -48,6 +48,15 @@ function playGame() {
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
     }
+    if (humanScore > computerScore) {
+        console.log("You win! Your score was " + humanScore + ".");
+    }
+    else if (humanScore < computerScore) {
+        console.log("You lose... Your score was " + humanScore + ".");
+    }
+    else {
+        console.log("Draw!")
+    }
 }
 
 playGame();
