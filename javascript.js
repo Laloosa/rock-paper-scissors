@@ -26,17 +26,21 @@ function getHumanChoice(buttonID) {
 function playRound(buttonID) {
     const humanChoice = getHumanChoice(buttonID);
     const computerChoice = getComputerChoice();
+    let message = '';
     if ((humanChoice == "Rock" && computerChoice == "Scissors") || (humanChoice == "Paper" && computerChoice == "Rock") || (humanChoice == "Scissors" && computerChoice == "Paper")) {
-        console.log("You win! " + humanChoice + " beats " + computerChoice + ".");
+        message = "You win! " + humanChoice + " beats " + computerChoice + ".";
         humanScore++;
     }
     else if ((humanChoice == "Rock" && computerChoice == "Paper") || (humanChoice == "Paper" && computerChoice == "Scissors") || (humanChoice == "Scissors" && computerChoice == "Rock")) {
-        console.log("You lose... " + humanChoice + " loses to " + computerChoice + ".");
+        message = "You lose... " + humanChoice + " loses to " + computerChoice + ".";
         computerScore++;
     }
     else {
-        console.log(humanChoice + " and " + computerChoice + ". It's a draw!");
+        message = humanChoice + " and " + computerChoice + ". It's a draw!";
     }
+    const p = document.createElement("p");
+    p.textContent = message;
+    div.appendChild(p);
 }
 
 let humanScore = 0;
