@@ -59,7 +59,12 @@ function playGame() {
     }
 }
 
-const buttons = document.querySelector("button");
+const buttons = document.querySelectorAll("button");
 buttons.forEach((btn) => {
     btn.addEventListener("click", () => playRound(btn.id));
 });
+
+const body = document.querySelector("body");
+const div = document.createElement("div");
+div.style.border = "1px solid black";
+body.appendChild(div);
