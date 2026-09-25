@@ -28,15 +28,15 @@ function playRound(buttonID) {
     const computerChoice = getComputerChoice();
     let message = '';
     if ((humanChoice == "Rock" && computerChoice == "Scissors") || (humanChoice == "Paper" && computerChoice == "Rock") || (humanChoice == "Scissors" && computerChoice == "Paper")) {
-        message = "You win! " + humanChoice + " beats " + computerChoice + ".";
         humanScore++;
+        message = "You win! " + humanChoice + " beats " + computerChoice + ". You: " + humanScore + "     Computer: " + computerScore;
     }
     else if ((humanChoice == "Rock" && computerChoice == "Paper") || (humanChoice == "Paper" && computerChoice == "Scissors") || (humanChoice == "Scissors" && computerChoice == "Rock")) {
-        message = "You lose... " + humanChoice + " loses to " + computerChoice + ".";
         computerScore++;
+        message = "You lose... " + humanChoice + " loses to " + computerChoice + ". You: " + humanScore + "     Computer: " + computerScore;
     }
     else {
-        message = humanChoice + " and " + computerChoice + ". It's a draw!";
+        message = humanChoice + " and " + computerChoice + ". It's a draw! You: " + humanScore + "     Computer: " + computerScore;
     }
     const p = document.createElement("p");
     p.textContent = message;
