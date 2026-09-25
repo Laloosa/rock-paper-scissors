@@ -43,11 +43,11 @@ function playGame() {
         }
     }
 
-    for (i = 0; i < 5; i++) {
+    //for (i = 0; i < 5; i++) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
-    }
+    //}
     if (humanScore > computerScore) {
         console.log("You win! Your score was " + humanScore + ".");
     }
@@ -59,4 +59,7 @@ function playGame() {
     }
 }
 
-playGame();
+const buttons = document.querySelector("button");
+buttons.forEach((btn) => {
+    btn.addEventListener("click", () => playRound(btn.id));
+});
