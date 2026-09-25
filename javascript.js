@@ -41,6 +41,22 @@ function playRound(buttonID) {
     const p = document.createElement("p");
     p.textContent = message;
     div.appendChild(p);
+
+    if (humanScore == 5 || computerScore == 5) {
+        let matchResult = '';
+        if (humanScore == 5) {
+            matchResult = "You win! Your score was " + humanScore + ".";
+        }
+        else if (computerScore == 5) {
+            matchResult = "You lose... Your score was " + humanScore + ".";
+        }
+        else {
+            matchResult = "Draw!";
+        }
+        const p2 = document.createElement("p");
+        p2.textContent = matchResult;
+        div.appendChild(p2);
+    }
 }
 
 let humanScore = 0;
@@ -55,13 +71,3 @@ const body = document.querySelector("body");
 const div = document.createElement("div");
 div.style.border = "1px solid black";
 body.appendChild(div);
-
-if (humanScore > computerScore) {
-    console.log("You win! Your score was " + humanScore + ".");
-}
-else if (humanScore < computerScore) {
-    console.log("You lose... Your score was " + humanScore + ".");
-}
-else {
-    console.log("Draw!")
-}
